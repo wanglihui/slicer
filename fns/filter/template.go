@@ -20,8 +20,8 @@ func (tpl *FilterTemplate) GetContent(out io.Writer, data core.GenerateData) err
 
 func (tpl *FilterTemplate) filterFnTpl(out io.Writer, data core.GenerateData) error {
 	t, err := template.New("filterFnTpl").Parse(`
-type filterFn func(item {{.Type}}, idx int) bool
-func (items {{.Type}}Slice) Filter(fn filterFn) {{.Type}}Slice {
+type {{.Type}}FilterFn func(item {{.Type}}, idx int) bool
+func (items {{.Type}}Slice) Filter(fn {{.Type}}FilterFn) {{.Type}}Slice {
 	rets := make({{.Type}}Slice, 0)
 	for idx, item := range items {
 		if b := fn(item, idx); b {

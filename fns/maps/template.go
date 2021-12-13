@@ -15,14 +15,14 @@ type MapTemplate struct{}
 
 func (tpl *MapTemplate) GetContent(out io.Writer, data core.GenerateData) error {
 	t, err := template.New("").Parse(`
-type mapFn func(pkg {{.Type}}, idx int) interface{}
-type mapStringFn func(pkg {{.Type}}, idx int) string
-type mapIntFn func(pkg {{.Type}}, idx int) int
-type mapInt64Fn func(pkg {{.Type}}, idx int) int64
-type mapFloat64Fn func(pkg {{.Type}}, idx int) float64
-type MapReturnedInterface []interface{}
+type {{.Type}}MapFn func(pkg {{.Type}}, idx int) interface{}
+type {{.Type}}MapStringFn func(pkg {{.Type}}, idx int) string
+type {{.Type}}MapIntFn func(pkg {{.Type}}, idx int) int
+type {{.Type}}MapInt64Fn func(pkg {{.Type}}, idx int) int64
+type {{.Type}}MapFloat64Fn func(pkg {{.Type}}, idx int) float64
+type {{.Type}}MapReturnedInterface []interface{}
 
-func (packages {{.Type}}Slice) Map(fn mapFn) MapReturnedInterface {
+func (packages {{.Type}}Slice) Map(fn {{.Type}}MapFn) {{.Type}}MapReturnedInterface {
 	arr := make([]interface{}, 0)
 	for idx, pkg := range packages {
 		arr = append(arr, fn(pkg, idx))
@@ -30,7 +30,7 @@ func (packages {{.Type}}Slice) Map(fn mapFn) MapReturnedInterface {
 	return arr
 }
 
-func (packages {{.Type}}Slice) MapString(fn mapStringFn) []string {
+func (packages {{.Type}}Slice) MapString(fn {{.Type}}MapStringFn) []string {
 	rets := make([]string, 0)
 	for idx, pkg := range packages {
 		s := fn(pkg, idx)
@@ -39,7 +39,7 @@ func (packages {{.Type}}Slice) MapString(fn mapStringFn) []string {
 	return rets
 }
 
-func (packages {{.Type}}Slice) MapInt(fn mapIntFn) []int {
+func (packages {{.Type}}Slice) MapInt(fn {{.Type}}MapIntFn) []int {
 	rets := make([]int, 0)
 	for idx, pkg := range packages {
 		s := fn(pkg, idx)
@@ -48,7 +48,7 @@ func (packages {{.Type}}Slice) MapInt(fn mapIntFn) []int {
 	return rets
 }
 
-func (packages {{.Type}}Slice) MapInt64(fn mapInt64Fn) []int64 {
+func (packages {{.Type}}Slice) MapInt64(fn {{.Type}}MapInt64Fn) []int64 {
 	rets := make([]int64, 0)
 	for idx, pkg := range packages {
 		s := fn(pkg, idx)
@@ -57,7 +57,7 @@ func (packages {{.Type}}Slice) MapInt64(fn mapInt64Fn) []int64 {
 	return rets
 }
 
-func (packages {{.Type}}Slice) MapFloat64(fn mapFloat64Fn) []float64 {
+func (packages {{.Type}}Slice) MapFloat64(fn {{.Type}}MapFloat64Fn) []float64 {
 	rets := make([]float64, 0)
 	for idx, pkg := range packages {
 		s := fn(pkg, idx)
