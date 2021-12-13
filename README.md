@@ -3,11 +3,11 @@
 ### Usage
 
 ```golang
-//go:generate slicer -type PackageItem -output packageitem_slice.go
+//go:generate slicer -type PackageItem -pkg main
 ```
 
 ```golang
-// output.go
+// packageitem_slice.gen.go
 package packageitem
 
 type PackageItemSlice []PackageItem
