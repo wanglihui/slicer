@@ -9,6 +9,7 @@ import (
 
 	"github.com/wanglihui/slicer/fns/core"
 	"github.com/wanglihui/slicer/fns/filter"
+	"github.com/wanglihui/slicer/fns/maps"
 )
 
 var typeName = flag.String("type", "", "input type name")
@@ -25,6 +26,7 @@ func main() {
 	tpls := []core.Template{
 		core.NewCoreTemplate(),
 		filter.NewFilterTemplate(),
+		maps.NewMapTemplate(),
 	}
 	dir, err := os.Getwd()
 
