@@ -10,6 +10,7 @@ import (
 	"github.com/wanglihui/slicer/fns/core"
 	"github.com/wanglihui/slicer/fns/filter"
 	"github.com/wanglihui/slicer/fns/maps"
+	"github.com/wanglihui/slicer/fns/orderby"
 )
 
 var typeName = flag.String("type", "", "input type name")
@@ -27,6 +28,7 @@ func main() {
 		core.NewCoreTemplate(),
 		filter.NewFilterTemplate(),
 		maps.NewMapTemplate(),
+		orderby.NewOrderByTemplate(),
 	}
 	dir, err := os.Getwd()
 
