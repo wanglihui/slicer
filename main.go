@@ -9,6 +9,7 @@ import (
 
 	"github.com/wanglihui/slicer/fns/core"
 	"github.com/wanglihui/slicer/fns/filter"
+	"github.com/wanglihui/slicer/fns/find"
 	"github.com/wanglihui/slicer/fns/maps"
 	"github.com/wanglihui/slicer/fns/orderby"
 )
@@ -29,6 +30,7 @@ func main() {
 		filter.NewFilterTemplate(),
 		maps.NewMapTemplate(),
 		orderby.NewOrderByTemplate(),
+		find.NewFindTemplate(),
 	}
 	dir, err := os.Getwd()
 
