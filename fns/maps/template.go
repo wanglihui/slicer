@@ -16,7 +16,7 @@ type MapTemplate struct{}
 func (tpl *MapTemplate) GetContent(out io.Writer, data core.GenerateData) error {
 	t, err := template.New("").Parse(`
 type {{.Type}}MapFn func(pkg {{.Type}}, idx int) interface{}
-type {{.Type}}Map{{.Type}}Fn func(pkg {{.Type}}, idx int) {{.Type}}Slice
+type {{.Type}}Map{{.Type}}Fn func(pkg {{.Type}}, idx int) {{.Type}}
 type {{.Type}}MapStringFn func(pkg {{.Type}}, idx int) string
 type {{.Type}}MapIntFn func(pkg {{.Type}}, idx int) int
 type {{.Type}}MapInt64Fn func(pkg {{.Type}}, idx int) int64
