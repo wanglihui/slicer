@@ -7,10 +7,9 @@ use go generate to generate slice helper code. like map, find, groupby, orderby,
 ### Usage
 
 ```golang
-//go:generate go run github.com/wanglihui/slicer -type PackageItem -pkg packageitem
+//go:generate go run github.com/wanglihui/slicer -type PackageItem
 ```
 - type is struct type
-- pkg is package name
 
 ```bash
 go generate ./...

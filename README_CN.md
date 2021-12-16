@@ -5,10 +5,9 @@ golang 切片操作函数集合，提供了Map, Find, Filter, Groupby, OrderBy �
 
 使用golang generate 方式，对切片对象生成辅助函数.
 ```golang
-//go:generate go run github.com/wanglihui/slicer -type PackageItem -pkg packageitem
+//go:generate go run github.com/wanglihui/slicer -type PackageItem
 ```
-- type 要追加辅助函数的类型。如PackageItem,那么将为 []PackageItem 生成辅助函数，同时生成别名 PackageItemSlice
-- pkg 生成的文件名称默认是 ./lowercase(TypeName)_slice.gen.go ，包名称为 pkg 参数. 如 packageitem_slice.gen.go
+- type 要追加辅助函数的类型。如PackageItem,那么将为 []PackageItem 生成辅助函数，同时生成别名 PackageItemSlice 生成的文件名称默认是 ./lowercase(TypeName)_slice.gen.go
 
 ```bash
 //执行generate命令
