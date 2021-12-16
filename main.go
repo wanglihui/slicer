@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"strconv"
 	"strings"
 
 	"github.com/wanglihui/slicer/fns/core"
@@ -15,16 +16,15 @@ import (
 )
 
 var typeName = flag.String("type", "", "input type name")
-var pkgName = flag.String("pkg", "", "input package name")
 
 func main() {
 	flag.Parse()
 	if typeName == nil {
 		panic("need set -type")
 	}
-	if pkgName == nil {
-		panic("need set -pkg")
-	}
+	pkgName := os.Getenv("GOPACKAGE")
+	fileName := os.Getenv("GOFILE")
+	line := os.Getenv("GOLINE")
 	tpls := []core.Template{
 		core.NewCoreTemplate(),
 		filter.NewFilterTemplate(),
@@ -41,9 +41,12 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	linenum, _ := strconv.Atoi(line)
 	data := core.GenerateData{
-		Type:    *typeName,
-		PkgName: *pkgName,
+		Type:     *typeName,
+		PkgName:  pkgName,
+		FileName: fileName,
+		Line:     linenum,
 	}
 	for _, tpl := range tpls {
 		tpl.GetContent(f, data)
