@@ -4,6 +4,13 @@
 
 use go generate to generate slice helper code. like map, find, groupby, orderby, find, first and so on .
 
+- Mapint
+- Mapint64
+- Mapstring
+- Filter
+- Find
+- OrderBy
+
 ### Usage
 
 ```golang
