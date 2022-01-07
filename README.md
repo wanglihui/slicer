@@ -10,6 +10,7 @@ use go generate to generate slice helper code. like map, find, groupby, orderby,
 - Filter
 - Find
 - OrderBy
+- Chunk
 
 ### Usage
 
